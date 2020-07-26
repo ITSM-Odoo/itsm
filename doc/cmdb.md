@@ -1,20 +1,21 @@
+# cmdb
 
-# cmdb 
 ## configuration management database
 
 涵盖的业务对象
+
 - CI
 - Relation
 - Asset
 - CI Asset Mapping
 
-### 1. CI - configuration item 
+### 1. CI - configuration item
 
-CI 是配置管理的基本对象，是配置对象的逻辑概念，通常，它具有类别CLASS以及属性PROPERTIES，就跟面向对象编程概念里面的 类，对象，属性 一样。
+CI 是配置管理的基本对象，是配置对象的逻辑概念，通常，它具有类别 CLASS 以及属性 PROPERTIES，就跟面向对象编程概念里面的 类，对象，属性 一样。
 
 - CI Class
 - CI Class property
-- CI 
+- CI
 - CI property
 
 #### 1.1 CI class
@@ -26,8 +27,7 @@ CI 是配置管理的基本对象，是配置对象的逻辑概念，通常，�
 - parent CI class, required
 - properties
 
-CI Class可以互相嵌套，下级具备上级的数据，但是可以改写为自身的。
-
+CI Class 可以互相嵌套，下级具备上级的数据，但是可以改写为自身的。
 
 #### 1.2. CI class property
 
@@ -41,8 +41,7 @@ CI Class可以互相嵌套，下级具备上级的数据，但是可以改写为
 
 属性也可以嵌套，下级继承修改上级的
 
-
-####  1.3. CI
+#### 1.3. CI
 
 具备以下属性
 
@@ -53,8 +52,7 @@ CI Class可以互相嵌套，下级具备上级的数据，但是可以改写为
 - Children CI
 - properties
 
-
-####  1.4. CI property
+#### 1.4. CI property
 
 具备以下属性
 
@@ -63,10 +61,9 @@ CI Class可以互相嵌套，下级具备上级的数据，但是可以改写为
 - Value, required
 - Value UoM
 
-
 #### 1.5. CI Relation
 
-也就是CI 之间的关系，这也是个逻辑概念，关系具有不同的类型，和任意可以添加的属性
+也就是 CI 之间的关系，这也是个逻辑概念，关系具有不同的类型，和任意可以添加的属性
 
 具备以下属性
 
@@ -75,17 +72,17 @@ CI Class可以互相嵌套，下级具备上级的数据，但是可以改写为
 - relation type, required
 - properties
 
-CI关系 存在一个 关系类型和关于关系的属性
+CI 关系 存在一个 关系类型和关于关系的属性
 
- relation type
+relation type
 
 具备以下属性
 
-- ID 
-- description 
+- ID
+- description
 - type, 枚举
 
- relation property
+relation property
 
 具备以下属性
 
@@ -94,7 +91,7 @@ CI关系 存在一个 关系类型和关于关系的属性
 - Value, required
 - Value UoM
 
-### 2.  资产 asset 
+### 2. 资产 asset
 
 asset 是物理概念，代表了实实在在的资产，例如 硬件，软件
 
@@ -108,7 +105,6 @@ asset 是物理概念，代表了实实在在的资产，例如 硬件，软件
 - location
 - asset Tag
 
-
 ### 3. CI 与 资产 asset 之间的 关系
 
 CI 是逻辑概念，而 asset 则是物理概念； 他们之间存在 对应关系
@@ -120,10 +116,9 @@ CI 是逻辑概念，而 asset 则是物理概念； 他们之间存在 对应�
 - from date
 - to date
 
-
 ### 4. config 配置
 
-config 是配置项/或者设备 的运行配置，它是 运行代码和配置的总称，可以通过 CM系统进行保存，然后通过 CM进行差异比对
+config 是配置项/或者设备 的运行配置，它是 运行代码和配置的总称，可以通过 CM 系统进行保存，然后通过 CM 进行差异比对
 
 应当具有以下属性
 
@@ -135,4 +130,3 @@ config 是配置项/或者设备 的运行配置，它是 运行代码和配置�
 - difference 【 可能与 change 存在功能重叠】
 
 配置与 配置项，设备之间的关系
- 
