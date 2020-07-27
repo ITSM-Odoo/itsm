@@ -18,6 +18,12 @@ should support those features/functions.
 
 以 Odoo13 为运行环境，不用支持之前版本
 
+## 模块
+
+1. cmdb
+2. helpdesk
+3. SLM
+
 ## 需求
 
-参考 [需求列表](doc/README.md)
+[需求列表](doc/README.md)
