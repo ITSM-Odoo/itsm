@@ -9,6 +9,8 @@
 - Asset
 - CI Asset Mapping
 
+![uml](../doc/images/doc/uml/cmdb.png)
+
 ### 1. CI - configuration item
 
 CI 是配置管理的基本对象，是配置对象的逻辑概念，通常，它具有类别 CLASS 以及属性 PROPERTIES，就跟面向对象编程概念里面的 类，对象，属性 一样。

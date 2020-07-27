@@ -1,0 +1,95 @@
+
+@startuml
+
+skinparam ObjectFontSize 18
+skinparam ObjectAttributeFontSize 16
+
+object "Configuration Item \nClass" as ci_class {
+    ID
+    descirption
+
+}
+object "Configuration Item \nClass \nProperty" as ci_class_prop {
+    ID
+    descirption
+    value
+    value UoM
+}
+object "Configuration Item \nProperty" as ci_prop {
+    ID
+    descirption
+    value
+    value UoM
+}
+object "Configuration Item \nRelation" as ci_rel {
+    ID
+    descirption
+    type
+
+}
+object "Configuration Item \nRelation\nProperty" as ci_rel_prop {
+    ID
+    descirption
+    value
+    value UoM
+}
+
+object "Configuration Item"  as ci   {
+
+    ID
+    descirption
+    hierachy scope
+}
+
+enum "hierachy scope" as h_scope {
+    Site 
+    Zone
+    Floor
+    Room
+    Rack 
+    Hight
+}
+
+enum "relation type" as rel_type {
+    related_to
+    upgrades
+    repairs
+    impacts
+    moves
+    installs
+    removes
+    changes
+
+}
+
+object Asset {
+    ID
+    descirption
+    vendor
+    "purchase date"
+    "asset tag"
+}
+
+object "CI Asset Mapping" as ci_asset_mapping {
+    ID
+    description
+    start_date
+    end_date
+}
+
+ci_class o- ci_class  : inherit
+ci_class  "0..n"- ci
+ci_class *--   ci_class_prop
+ci *-- ci_prop
+ci_class_prop  -   ci_prop : map to <
+ci - h_scope
+ci_rel - rel_type
+ci o-- ci  : left to rgiht
+ci --o ci  : right to left
+(ci,ci) -  ci_rel
+(ci,ci) -  ci_rel
+ci_rel *-- ci_rel_prop
+(ci, Asset) -- ci_asset_mapping
+
+
+@enduml
