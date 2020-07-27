@@ -35,19 +35,28 @@ object "Configuration Item \nRelation\nProperty" as ci_rel_prop {
 }
 
 object "Configuration Item"  as ci   {
-
     ID
     descirption
+    CI Class
     hierachy scope
+    hierachy level
 }
 
-enum "hierachy scope" as h_scope {
-    Site 
-    Zone
+object "hierachy scope" as h_scope {
+    ID
+    descirption
+    hierachy level
+    parent
+}
+
+enum "hierachy level" as h_level {
+    Site
+    Building
     Floor
     Room
+    Zone
     Rack 
-    Hight
+    Rack Unit
 }
 
 enum "relation type" as rel_type {
@@ -65,9 +74,18 @@ enum "relation type" as rel_type {
 object Asset {
     ID
     descirption
+    asset type
     vendor
-    "purchase date"
-    "asset tag"
+    purchase date
+    asset tag
+    location
+}
+
+enum "Asset type" {
+    software
+    hardware
+    mixed
+    other
 }
 
 object "CI Asset Mapping" as ci_asset_mapping {
@@ -77,19 +95,24 @@ object "CI Asset Mapping" as ci_asset_mapping {
     end_date
 }
 
-ci_class o- ci_class  : inherit
-ci_class  "0..n"- ci
+ci_class o-- ci_class  : inherit
+ci_class  "0..n"-- ci
 ci_class *--   ci_class_prop
 ci *-- ci_prop
+ci - h_level
 ci_class_prop  -   ci_prop : map to <
 ci - h_scope
-ci_rel - rel_type
+h_scope o-- h_scope : nested
+h_scope -- h_level : related
 ci o-- ci  : left to rgiht
 ci --o ci  : right to left
-(ci,ci) -  ci_rel
-(ci,ci) -  ci_rel
+(ci,ci) --  ci_rel :right to left relation
+(ci,ci) --  ci_rel :left to right relation
 ci_rel *-- ci_rel_prop
+ci_rel - rel_type
 (ci, Asset) -- ci_asset_mapping
+Asset o-- Asset
+Asset -- "Asset type"
 
 
 @enduml
