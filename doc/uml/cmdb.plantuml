@@ -1,8 +1,8 @@
 
 @startuml
 
-skinparam ObjectFontSize 18
-skinparam ObjectAttributeFontSize 16
+skinparam ObjectFontSize 14
+skinparam ObjectAttributeFontSize 14
 
 object "Configuration Item \nClass" as ci_class {
     ID

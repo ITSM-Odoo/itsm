@@ -1,0 +1,47 @@
+@startuml
+
+skinparam ObjectFontSize 14
+skinparam ObjectAttributeFontSize 14
+
+
+object "support team" as team {
+    ID 
+    description
+    member
+    parent team
+}
+
+object "help request" as help {
+    ID
+    description
+    type
+    partner
+    date
+    problem
+    resolution
+    status 
+    important
+    impact
+    priority
+
+}
+
+enum type {
+    incident
+    problem
+    request fullfill
+}
+
+object "process log" as proc_log {
+    date
+    requestz
+    team
+    type 
+
+}
+
+help . type
+(help, team) --  proc_log
+
+
+@enduml
